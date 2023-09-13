@@ -11,7 +11,7 @@ def primeList(start, end):
         if not primeChart[i]:
             continue
 
-        for j in range(i * 2, 51, i):
+        for j in range(i * 2, end + 1, i):
             if j >= (end + 1):
                 break
             primeChart[j] = False
@@ -20,6 +20,7 @@ def primeList(start, end):
 n, m = (int(x) for x in input().split(' '))
 primeList(n, m)
 count = 0
+
 for index in range(int(n), int(m) + 1):
     if primeChart[index]:
         print(index)
