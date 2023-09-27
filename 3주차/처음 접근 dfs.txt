@@ -1,3 +1,5 @@
+백준 1931
+
 처음 접근 dfs
 class Meeting():
     def __init__(self, start, end):
