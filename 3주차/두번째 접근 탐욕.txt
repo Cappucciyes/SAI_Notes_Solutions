@@ -1,0 +1,29 @@
+Greedy 알고리즘 접근
+
+가장 빠르게 시작하는 것을 위주로 둘까? => 예시보니까 틀림
+
+가장 빠르게 끝나는 것을 위주로 둘까?
+class Meeting():
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+
+meetingList = list()
+times = int(input())
+for i in range(times):
+    n, m = (int(x) for x in input().split(' '))
+    meetingList.append(Meeting(n, m))
+
+meetingList = sorted(meetingList, key=lambda x: x.start)
+meetingList = sorted(meetingList, key=lambda x: x.end)
+
+result = [meetingList[0]]
+
+index = 1
+while index < len(meetingList):
+    if result[-1].end <= meetingList[index].start:
+        result.append(meetingList[index])
+    index += 1
+
+print(len(result))

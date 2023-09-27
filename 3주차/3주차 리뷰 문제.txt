@@ -1,0 +1,16 @@
+1. numpy.sort, numpy.argsort의 차이점을 설명하시오
+2. 다음 코드를 보자
+import numpy as np
+arr = np.array([1, 2, 7, 8])
+arr = np.expand_dims(arr, axis = 0) # 1
+
+gfg = np.expand_dims(gfg, axis = 3) # 2
+
+2-1. # 1 코드로 만들어지는 arr 배열의 모양은?
+2-2. # 2 코드는 에러가 발생한다. 왜일까?
+
+
+3. arr 을 (2,3) 모양의 2차원 배열이자 하자.
+ 	3-1. print(arr.T)를 실행했을 경우 출력되는 배열의 모양은?
+	3-2. 이때, arr.T를 실행했을때 arr의 모양이 바뀝니까?
+4. numpy.vstack([arr1, arr2])를 numpy.append 함수를 활용해 구연하시오

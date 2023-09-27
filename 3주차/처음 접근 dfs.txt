@@ -1,0 +1,52 @@
+처음 접근 dfs
+class Meeting():
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+def dfs(stack, meetingList):
+    if len(meetingList) == 0:
+        return len(stack)
+    else:
+        result = []
+
+        for i in range(len(meetingList)):
+            index = len(meetingList)
+            for j in range(i + 1, len(meetingList)):
+                if meetingList[i].end <= meetingList[j].start:
+                    index = j
+                    break
+            
+            stack.append(meetingList[i])
+            result.append(dfs(stack, meetingList[index:]))
+            stack.pop()
+        
+        result.sort(reverse=True)
+        return result[0]
+
+
+def main():
+    meetingList = list()
+    times = int(input())
+    for i in range(times):
+        n, m = (int(x) for x in input().split(' '))
+        meetingList.append(Meeting(n,m))
+
+    byStartTime = sorted(meetingList, key=lambda meeting: meeting.start)
+
+    maxCount = 0
+    for i in range(len(byStartTime)):
+        index = len(byStartTime)
+        for j in range(i + 1, len(byStartTime)):
+            if byStartTime[i].end <= byStartTime[j].start:
+                index = j
+                break
+
+        tmp = dfs([byStartTime[i]], byStartTime[index:])
+        if maxCount < tmp:
+            maxCount = tmp
+        
+    print(maxCount)
+
+        
+main()
