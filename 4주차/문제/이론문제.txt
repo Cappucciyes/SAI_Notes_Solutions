@@ -1,0 +1,29 @@
+다음 문장을 읽고 옳은지 틀린지 O,X로 표시한 후, 틀린 문장은 알맞게 고치시오.
+1. 각 행과 열의 "index 값"으로 인덱싱 할 때는 df.loc[]을 사용한다.(X) >>df.iloc
+2. 열방향 인덱스와 행방향 인덱스는 각각 columns, index 속성으로 접근한다. (0)
+3. df.drop(['jhon']) df.head()를 쓰면 df자료의 원본데이터에는 jhon값이 삭제되어 보인다. x inplace =True
+4. 데이터가 ‘\t’로 구분되어 있을 때, df=pd.read_csv('data/file_name.txt',delimiter = Tab)로 불러온다(X) >>
+5. 두 자료의 열을 합칠때는 df.concat('이름', axis = 0)이다.(X) >> axis =1
+
+
+1. pandas 라이브러리는 통상적으로 import pandas as pd 명령으로 불러온다. (2점) o
+2. head() 함수는 가장 앞선 10개의 데이터를 불러온다. (2점) x 5개
+3. to_csv() 함수에서 ‘header’와 ‘index’ 값은 기본적으로 False로 지정되어 있다. (2점) x False로 되어있다
+4. OrderedDict를 import 해주기 위해서는 다음과 같은 명령을 사용할 수 있다. (2점) x from collections import OrderedDict
+from matplotlib import OrderedDict
+
+다음 코드를 실행하면 3개의 열이 아닌 2개의 열이 출력된다. (2점) 
+import pandas as pd
+
+l = [
+    {'name': "Eclair", 'age': 21},
+    {'name': "Froyo", 'age': 22},
+    {'name': "Honeycomb", 'age': 30}
+    ]
+s = pd.DataFrame(l)
+
+s.drop(0)
+
+print(s)
+
+x inplace는 기본적으로 False
