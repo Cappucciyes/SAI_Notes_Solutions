@@ -1,0 +1,10 @@
+- `DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)`: 중복된 데이터 삭제. 기본적으로 행의 모든 값이 똑같아야 중복된다고 보지만, `subset`에 열 인덱스를 넘겨주면 그 열들만 확인함.
+- `DataFrame.fillna(val)`: 데이터프레임의 null 값들을 모두 `val`로 바꿈
+- `Series.apply(func, axis=0, raw=False, result_type=None, args=(), by_row='compat', **kwargs)`: 
+	- [읽어보기](https://stackoverflow.com/questions/19798153/difference-between-map-applymap-and-apply-methods-in-pandas).
+	- 각 행(axis=0) 또는 각 열(axis=1)에 `func` 함수를 적용함
+- `Series.map(arg)` :  `list`의 `map()` 함수처럼, 시리즈 또는 데이터프레임의 모든 원소들에게 `arg`를 적용함. `arg` 에 함수 자리에 `dict`를 넣을 수 있다. `dict`를 넣으면 `dict`의 `key`와 같은 원소들은 상응하는 `value`값으로 바뀐다 (나머지는 모두 `NaN`).
+	- `DataFrame.map(func)`: `DataFrame.applymap(func)` 와 똑같이 작용함.
+- `DataFrame.applymap(func)`: 데이터프레임에 모든 원소에 함수 `func`를 적용시킨다.
+- `Series.unique()`: 시리즈의 고유값들을 모은 ndarray를 반환함.
+- `Series.value_counts()`: 각 시리즈의 값들이 몇번 나타나는지 보여주는 새로운 시리즈를 반환함.

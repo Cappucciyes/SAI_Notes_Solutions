@@ -1,0 +1,42 @@
+test = int(input())
+
+for i in range(test):
+    peopleCount = int(input())
+    personality = sorted(input().split())
+
+    history = dict()
+    distance = [0] * 5
+
+    for j in range(peopleCount):
+        for k in range(j + 1, peopleCount):
+            if personality[j] == personality[k]:
+                distance[0] = distance[0] + 1
+                continue
+
+            check = personality[j] + personality[k]
+
+            if check in history:
+                distance[history[check]] = distance[history[check]] + 1
+            else:
+                totalDistance = 0
+                for finger in range(4):
+                    if personality[j][finger] != personality[k][finger]:
+                        totalDistance += 1
+
+                history[check] = totalDistance
+                distance[history[check]] = distance[history[check]] + 1
+
+    resultCount = 0
+    result = 0
+    for n in range(5):
+        tmp = resultCount + distance[n]
+        if tmp >= 3:
+            while resultCount < 3:
+                result += n
+                resultCount += 1
+            break
+        else:
+            resultCount += distance[n]
+            result += n * distance[n]
+
+    print(result)

@@ -1,0 +1,12 @@
+1. map()은 모든 column에 적용된다.
+2. apply 함수를 사용하면 특정 column의 값을 일괄적으로 변경할 수 있다.
+3. concat 함수는 기본적으로 axis=0설정이며, 이는 행방향으로 연결한다.
+4. f = lambda x : x.max() - x.min()df_info[df_info.apply(f)]의 결과는 DataFrame의 형태로 나온다 
+5. df.duplicated() 함수의 값이 False일 경우 값이 중복이라는 의미이다.
+
+1. o
+2. o
+3. o
+4. o
+5. x
+
